@@ -6,12 +6,20 @@
  * @author briansteele
  *
  */
+
+
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+
 public class CurrentDirectory {
 	
-	private String currentWorkingDirectory;
+	private Path currentWorkingDirectory;
 	
 	
-	public CurrentDirectory(String path) {
+	public CurrentDirectory(Path path) {
 		this.currentWorkingDirectory = path;
 	}
 	
@@ -20,21 +28,36 @@ public class CurrentDirectory {
 	/**
 	 * @return the currentWorkingDirectory
 	 */
-	public String getCurrentWorkingDirectory() {
-		return currentWorkingDirectory;
+	public Path getCurrentWorkingDirectory() {
+		return this.currentWorkingDirectory;
 	}
 
 	/**
 	 * @param currentWorkingDirectory the currentWorkingDirectory to set
 	 */
-	public void setCurrentWorkingDirectory(String currentWorkingDirectory) {
-		this.currentWorkingDirectory = currentWorkingDirectory;
+	public void setCurrentWorkingDirectory(String newDirectory) {
+		this.currentWorkingDirectory = Paths.get(newDirectory);
 	}
 	
 	public String toString() {
-		return this.currentWorkingDirectory;
+		return this.currentWorkingDirectory.toString();
+	}
+	
+	public void upOneDirectory() {
+		this.currentWorkingDirectory = this.currentWorkingDirectory.getParent();
 	}
 
+	
+	public void nextDirectory(Path path) {
+		this.currentWorkingDirectory = 
+				this.currentWorkingDirectory.resolve(path);
+	}
+		
+	
+	
+	public Boolean checkFileSystemExists() {
+			return Files.isDirectory(this.currentWorkingDirectory);
+		}
 	
 	
 	

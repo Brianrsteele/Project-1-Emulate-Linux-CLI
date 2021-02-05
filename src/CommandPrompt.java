@@ -7,6 +7,8 @@
  *
  */
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class CommandPrompt {
@@ -14,7 +16,9 @@ public class CommandPrompt {
 	static String commandInput;
 	static int numberOfCommands = 0;
 	static String commandStringArray[];
-	static String initialPath = System.getProperty("user.home");
+	static String userHome = System.getProperty("user.home");
+	static Path initialPath = Paths.get(userHome);
+	
 	static CurrentDirectory cwd = new CurrentDirectory(initialPath);
 
 	/**
