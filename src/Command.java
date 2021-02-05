@@ -40,13 +40,10 @@ public class Command implements Runnable {
 
 		switch (commandArray[0].trim()) {
 
-		
-		
-		
 		/**
 		 * 
-		 * 	cd 
-		 * 	
+		 * cd
+		 * 
 		 */
 		case "cd":
 
@@ -82,11 +79,11 @@ public class Command implements Runnable {
 			}
 
 			break;
-			
+
 		/**
 		 * 
-		 * 	pwd
-		 * 	
+		 * pwd
+		 * 
 		 */
 		case "pwd":
 			System.out.println(cwd.getCurrentWorkingDirectory());
@@ -101,12 +98,12 @@ public class Command implements Runnable {
 			}
 
 			break;
-			
+
 		/**
 		 * 
-		 * 	cat 
-		 * 	
-		 */	
+		 * cat
+		 * 
+		 */
 		case "cat":
 
 			if (commandArray.length == 1) {
@@ -132,12 +129,11 @@ public class Command implements Runnable {
 			}
 
 			break;
-			
-			
+
 		/**
 		 * 
-		 * 	cmp 
-		 * 	
+		 * cmp
+		 * 
 		 */
 		case "cmp":
 
@@ -202,19 +198,18 @@ public class Command implements Runnable {
 			}
 
 			break;
-			
+
 		/**
 		 * 
-		 * 	sort
-		 * 	
+		 * sort
+		 * 
 		 */
 		case "sort":
-			
-			String [] tempArray = new String[1000];
-			String [] sortArray;
+
+			String[] tempArray = new String[1000];
+			String[] sortArray;
 			int lineCount = 0;
-			
-			
+
 			if (commandArray.length == 1) {
 				break;
 			} else {
@@ -226,26 +221,10 @@ public class Command implements Runnable {
 						s = new Scanner(file);
 						while (s.hasNextLine()) {
 							if (lineCount < 1000) {
-							tempArray[lineCount] = s.nextLine();
-							lineCount++;
+								tempArray[lineCount] = s.nextLine();
+								lineCount++;
 							}
 						}
-						sortArray = new String[lineCount];
-						
-						
-						
-					for (int j = 0; j < lineCount; j++) {
-							sortArray[j] = tempArray[j];
-						}
-					
-					
-						Arrays.sort(sortArray);
-						
-						for (int k = 0; k < sortArray.length; k++) {
-							System.out.println(sortArray[k]);
-						}
-						
-						
 					} catch (FileNotFoundException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -253,16 +232,26 @@ public class Command implements Runnable {
 
 				}
 
+				sortArray = new String[lineCount];
+
+				for (int j = 0; j < lineCount; j++) {
+					sortArray[j] = tempArray[j];
+				}
+
+				Arrays.sort(sortArray);
+
+				for (int k = 0; k < sortArray.length; k++) {
+					System.out.println(sortArray[k]);
+				}
+
 			}
-			
-			
 
 			break;
-			
+
 		/**
 		 * 
-		 * 	exit
-		 * 	
+		 * exit
+		 * 
 		 */
 		case "exit":
 			System.exit(0);
