@@ -274,6 +274,7 @@ public class Command implements Runnable {
 					} catch (FileNotFoundException e) {
 						// simulate the unix error message for a file that doesn't exist
 						System.out.println("-bash: sort: no such file or directory");
+						break;
 					}
 
 				}
