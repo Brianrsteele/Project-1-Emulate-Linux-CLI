@@ -1,27 +1,29 @@
-/**
- * 
- */
-
-/**
- * @author briansteele
- *
- */
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+
+/**
+ * The CommandPrompt class contains the main() method for this project.
+ * 
+ * @author briansteele
+ *
+ */
 
 public class CommandPrompt {
 	static Scanner console = new Scanner(System.in);
 	static String commandInput;
 	static int numberOfCommands = 0;
 	static String commandStringArray[];
+	// the current users home directory
 	static String userHome = System.getProperty("user.home");
 	static Path initialPath = Paths.get(userHome);
 	
 	static CurrentDirectory cwd = new CurrentDirectory(initialPath);
 
 	/**
+	 * main() runs the command line simulation
+	 * 
 	 * @param args
 	 * @throws InterruptedException 
 	 */
