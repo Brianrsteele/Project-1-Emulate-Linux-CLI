@@ -35,7 +35,7 @@ public class Command implements Runnable {
 
 	}
 
-	public void run() {
+	synchronized public void run() {
 		// code to handle what the command says to do
 
 		switch (commandArray[0].trim()) {
@@ -121,7 +121,7 @@ public class Command implements Runnable {
 						}
 					} catch (FileNotFoundException e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+						System.out.println("-bash: cat: " + commandArray[i] + ": no such file or directory");
 					}
 
 				}
@@ -227,7 +227,7 @@ public class Command implements Runnable {
 						}
 					} catch (FileNotFoundException e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+						System.out.println("-bash: sort: no such file or directory");
 					}
 
 				}
