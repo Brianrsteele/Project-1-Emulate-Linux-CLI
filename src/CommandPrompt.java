@@ -34,6 +34,7 @@ public class CommandPrompt {
 			//print shell prompt and accept input
 		    System.out.print("myshell> ");
 		    commandInput = console.nextLine();
+		    commandInput = commandInput.replaceAll("\\s+", " ");
 		      
 		    
 		    //Split commands into an array
