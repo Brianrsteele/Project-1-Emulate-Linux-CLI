@@ -182,7 +182,7 @@ public class Command implements Runnable {
 					if (character1 != character2) {
 
 						System.out.println(
-								commandArray[1] + " " + commandArray[2] + "differ: char " + linePos + ", line " + line);
+								commandArray[1] + " " + commandArray[2] + " differ: char " + linePos + ", line " + line);
 						break;
 					}
 
